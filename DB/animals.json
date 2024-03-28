@@ -19,5 +19,54 @@
         "species": "Dog",
         "age": 7,
         "tutor": 0
+    },
+    {
+        "id": 3,
+        "name": "Fishy",
+        "species": "Fish",
+        "age": 1,
+        "tutor": 2
+    },
+    {
+        "id": 4,
+        "name": "Fluffy",
+        "species": "Cat",
+        "age": 2,
+        "tutor": 2
+    },
+    {
+        "id": 5,
+        "name": "Rocky",
+        "species": "Dog",
+        "age": 4,
+        "tutor": 0
+    },
+    {
+        "id": 6,
+        "name": "Spike",
+        "species": "Dog",
+        "age": 6,
+        "tutor": 1
+    },
+    {
+        "id": 7,
+        "name": "Polly",
+        "species": "Bird",
+        "age": 2,
+        "tutor": 2
+    },
+    {
+        "id": 8,
+        "name": "Mittens",
+        "species": "Cat",
+        "age": 1,
+        "tutor": 0
+    },
+    {
+        "id": 9,
+        "name": "Goldie",
+        "species": "Fish",
+        "age": 3,
+        "tutor": 4
     }
 ]

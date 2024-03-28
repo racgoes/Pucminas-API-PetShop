@@ -6,7 +6,8 @@ const storeService = require('../services/store.service');
 const animalModel = require('../models/animal.model')
 const jwt = require('jsonwebtoken');
 
-const generateBearerToken = async () => {
+const generateBearerToken = async (req, res) => {
+    const payload = {};
     const secretKey = 's3cr3t';
     const options = {
         expiresIn: '1h',
@@ -14,6 +15,7 @@ const generateBearerToken = async () => {
 
     try {
         const token = jwt.sign(payload, secretKey, options);
+        console.log('Bearer token generated:', token);
         return token;
     } catch (error) {
         console.error('Error generating bearer token:', error);
@@ -22,13 +24,16 @@ const generateBearerToken = async () => {
 };
 
 
+
 const controllers = {
 
     createBearerToken: async (req, res) => {
+
         const token = await generateBearerToken();
         res.json({
             token
         }).status(200);
+
     },
 
     getAllUsers: async (req, res) => {

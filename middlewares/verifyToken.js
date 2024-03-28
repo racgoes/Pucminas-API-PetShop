@@ -9,8 +9,10 @@ function verifyToken(req, res, next) {
         const bearer = bearerHeader.split(' ');
         const bearerToken = bearer[1];
         req.token = bearerToken;
+        console.log('Token verified');
         next();
     } else {
+        console.log('Token not valid');
         res.status(httpStatus.UNAUTHORIZED).send('Unauthorized');
     }
     

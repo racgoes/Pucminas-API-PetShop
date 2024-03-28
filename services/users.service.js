@@ -1,4 +1,4 @@
-const user = require('../DB/users');
+const users = require('../DB/users');
 
 const usersService = {
 
@@ -45,13 +45,30 @@ const usersService = {
         return user;
     },
 
+    getOneUserByUsername: async (name) => {
+
+        const user = users.filter(user => user.name == name);
+
+        return user;
+    },
+
+    comparePasswords: async (password, dbPassword) => {
+        console.log('password', password);
+        console.log('dbPassword', dbPassword);
+        if (password == dbPassword) { // Não usado hash por fins didáticos
+            return true;
+        } else {
+            return false;
+        }
+    },
+
     createUser: async (req, res) => {
 
         const ids = users.map(user => {
             return user.id;
         });
 
-        const tutor = tutors.filter(tutor => tutor.name == req.body.name);
+        // const tutor = tutors.filter(tutor => tutor.name == req.body.name);
 
         const maxId = Math.max(ids)
 
@@ -104,6 +121,6 @@ const usersService = {
             }).status(204);
         }
     }
-    
+
 }
 module.exports = usersService;

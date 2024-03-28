@@ -1,14 +1,15 @@
 var express = require('express');
 var router = express.Router();
 
-const controller = require('../v1/controllers/v1/controller');
+const controller = require('../controllers/controller');
 
-/v1//v1/ Middlewares
-const verifyToken = require('../v1/middlewares/v1/verifyToken');
+// Middlewares
+const verifyToken = require('../middlewares/verifyToken');
+const verifyPassword = require('../middlewares/verifyPassword');
 
 router.get('/', async (req, res) => {res.send('Server is UP').status(200);});
 
-router.post('/v1/login', controller.createBearerToken);
+router.post('/v1/login', verifyPassword, controller.createBearerToken);
 
 router.get('/v1/animals', verifyToken, controller.getAllAnimals)
 router.get('/v1/animals', verifyToken, controller.getOneAnimal)
