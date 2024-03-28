@@ -1,0 +1,23 @@
+[
+    {
+        "id": 0,
+        "name": "Max",
+        "species": "Dog",
+        "age": 5,
+        "tutor": 1
+    },
+    {
+        "id": 1,
+        "name": "Whiskers",
+        "species": "Cat",
+        "age": 3,
+        "tutor": 1
+    },
+    {
+        "id": 2,
+        "name": "Buddy",
+        "species": "Dog",
+        "age": 7,
+        "tutor": 0
+    }
+]
