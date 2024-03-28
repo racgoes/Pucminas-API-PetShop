@@ -23,8 +23,11 @@ const usersService = {
             }
         } else {
             const usersArray = users.slice(start, limit);
+            
+            const usersArrayNoPass =  usersArray.map(({ id, name }) => ({ id, name }));
+            
             return {
-                "users": usersArray,
+                "users": usersArrayNoPass,
                 "start": start,
                 "limit": limit
             }
@@ -41,15 +44,14 @@ const usersService = {
         const id = query.id;
 
         const user = users.filter(user => user.id == id);
-
-        return user;
+        
+        return user.map(({ id, name }) => ({ id, name }));
     },
 
     getOneUserByUsername: async (name) => {
 
         const user = users.filter(user => user.name == name);
-
-        return user;
+        return user.map(({ id, name }) => ({ id, name }));
     },
 
     comparePasswords: async (password, dbPassword) => {

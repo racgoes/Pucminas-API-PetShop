@@ -1,25 +1,702 @@
 {
-    "openapi": "3.0.0",
-    "info": {
-        "title": "API Documentation",
-        "version": "1.0.0",
-        "description": "API documentation for your project"
-    },
-    "paths": {},
-    "components": {
-        "schemas": {}
-    },
-
-    "servers": [{
-        "url": "http://localhost:3000"
-    }],
-    "tags": [{
-            "name": "users",
-            "description": "Operations related to users"
-        },
-        {
-            "name": "products",
-            "description": "Operations related to products"
+  "openapi": "3.0.0",
+  "servers": [
+    {
+      "description": "SwaggerHub API Auto Mocking",
+      "url": "https://localhost:3000/v1"
+    }
+  ],
+  "info": {
+    "version": "1.0.0",
+    "title": "Sample Password Flow OAuth2 Project",
+    "description": "API for a Petshop. Entities Animal, Users, Tutors and Store."
+  },
+  "paths": {
+    "/": {
+      "get": {
+        "tags": [
+          "Live Check"
+        ],
+        "summary": "Server example operation",
+        "description": "Checks if server is online",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
         }
-    ]
+      }
+    },
+    "/login": {
+      "post": {
+        "summary": "Cadastrar uma pessoa",
+        "tags": [
+          "Login"
+        ],
+        "description": "",
+        "operationId": "login",
+        "requestBody": {
+          "description": "Pessoa a ser inserida",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Login"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Recurso inserido com sucesso"
+          }
+        }
+      }
+    },
+    "/animals": {
+      "get": {
+        "summary": "Server example operation",
+        "tags": [
+          "Animais"
+        ],
+        "description": "Checks if server is online",
+        "responses": {
+          "200": {
+            "description": "Operação bem sucedida",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Animais"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Cadastrar uma pessoa",
+        "tags": [
+          "Animais"
+        ],
+        "description": "",
+        "requestBody": {
+          "description": "Pessoa a ser inserida",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateAnimal"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Recurso inserido com sucesso"
+          }
+        }
+      }
+    },
+    "/animals/{idAnimal}": {
+      "get": {
+        "summary": "Server example operation",
+        "tags": [
+          "Animais"
+        ],
+        "description": "Checks if server is online",
+        "responses": {
+          "200": {
+            "description": "Operação bem sucedida",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/Animais"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "required": true,
+            "name": "idAnimal",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ]
+      },
+      "put": {
+        "summary": "Server example operation",
+        "tags": [
+          "Animais"
+        ],
+        "description": "Checks if server is online",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "required": true,
+            "name": "idAnimal",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Pessoa a ser inserida",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateAnimal"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Server example operation",
+        "tags": [
+          "Animais"
+        ],
+        "description": "Checks if server is online",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "required": true,
+            "name": "idAnimal",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ]
+      }
+    },
+    "/tutors": {
+      "get": {
+        "summary": "Server example operation",
+        "tags": [
+          "Tutores"
+        ],
+        "description": "Checks if server is online",
+        "responses": {
+          "200": {
+            "description": "Operação bem sucedida",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Tutors"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Cadastrar uma pessoa",
+        "tags": [
+          "Tutores"
+        ],
+        "description": "",
+        "requestBody": {
+          "description": "Pessoa a ser inserida",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTutor"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Recurso inserido com sucesso"
+          }
+        }
+      }
+    },
+    "/tutors/{idTutor}": {
+      "get": {
+        "summary": "Server example operation",
+        "tags": [
+          "Tutores"
+        ],
+        "description": "Checks if server is online",
+        "responses": {
+          "200": {
+            "description": "Operação bem sucedida",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/Tutors"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "required": true,
+            "name": "idTutor",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ]
+      },
+      "put": {
+        "summary": "Server example operation",
+        "tags": [
+          "Tutores"
+        ],
+        "description": "Checks if server is online",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "required": true,
+            "name": "idTutor",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Pessoa a ser inserida",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateTutor"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Server example operation",
+        "tags": [
+          "Tutores"
+        ],
+        "description": "Checks if server is online",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "required": true,
+            "name": "idTutor",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ]
+      }
+    },
+    "/users": {
+      "get": {
+        "summary": "Server example operation",
+        "tags": [
+          "Usuários"
+        ],
+        "description": "Checks if server is online",
+        "responses": {
+          "200": {
+            "description": "Operação bem sucedida",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Cadastrar uma pessoa",
+        "tags": [
+          "Usuários"
+        ],
+        "description": "",
+        "requestBody": {
+          "description": "Pessoa a ser inserida",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateUser"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Operação bem sucedida"
+          }
+        }
+      }
+    },
+    "/users/{idUser}": {
+      "get": {
+        "summary": "Server example operation",
+        "tags": [
+          "Usuários"
+        ],
+        "description": "Checks if server is online",
+        "responses": {
+          "200": {
+            "description": "Operação bem sucedida",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "required": true,
+            "name": "idUser",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ]
+      },
+      "put": {
+        "summary": "Server example operation",
+        "tags": [
+          "Usuários"
+        ],
+        "description": "Checks if server is online",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "required": true,
+            "name": "idUser",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Pessoa a ser inserida",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUser"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Server example operation",
+        "tags": [
+          "Usuários"
+        ],
+        "description": "Checks if server is online",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "required": true,
+            "name": "idUser",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ]
+      }
+    },
+    "/store": {
+      "get": {
+        "summary": "Server example operation",
+        "tags": [
+          "Loja"
+        ],
+        "description": "Checks if server is online",
+        "responses": {
+          "200": {
+            "description": "Operação bem sucedida",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "items": {
+                    "$ref": "#/components/schemas/Loja"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Server example operation",
+        "tags": [
+          "Loja"
+        ],
+        "description": "Checks if server is online",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "requestBody": {
+          "description": "Pessoa a ser inserida",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateStore"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Login": {
+        "type": "object",
+        "required": [
+          "name",
+          "password"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        }
+      },
+      "Loja": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "documentNumber": {
+            "type": "string"
+          }
+        }
+      },
+      "UpdateStore": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "documentNumber": {
+            "type": "string"
+          }
+        }
+      },
+      "Animais": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "species": {
+            "type": "string"
+          },
+          "age": {
+            "type": "string"
+          },
+          "tutor": {
+            "type": "integer"
+          }
+        }
+      },
+      "CreateAnimal": {
+        "type": "object",
+        "required": [
+          "name",
+          "species",
+          "age",
+          "tutor"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "species": {
+            "type": "string"
+          },
+          "age": {
+            "type": "string"
+          },
+          "tutor": {
+            "type": "integer"
+          }
+        }
+      },
+      "UpdateAnimal": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "species": {
+            "type": "string"
+          },
+          "age": {
+            "type": "string"
+          },
+          "tutor": {
+            "type": "integer"
+          }
+        }
+      },
+      "Tutors": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          }
+        }
+      },
+      "CreateTutor": {
+        "type": "object",
+        "required": [
+          "name",
+          "email",
+          "phone"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          }
+        }
+      },
+      "UpdateTutor": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          }
+        }
+      },
+      "User": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          }
+        }
+      },
+      "CreateUser": {
+        "type": "object",
+        "required": [
+          "name",
+          "password"
+        ],
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        }
+      },
+      "UpdateUser": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
 }

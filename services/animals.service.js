@@ -74,8 +74,6 @@ const animalsService = {
 
         const index = animals.findIndex(animal => animal.id == id);
 
-        const attributes = Object.keys(req.body);
-
         if (req.body.name) {
             index.name = req.body.name
         } else if (req.body.species) {
