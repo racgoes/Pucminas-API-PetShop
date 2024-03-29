@@ -78,13 +78,13 @@ const usersService = {
 
         const id = req.params.userId;
 
-        const index = users.findIndex(user => user.id == id);
+        const user = users.find(user => user.id == id);
 
 
         if (req.body.name) {
-            index.name = req.body.name
+            user.name = req.body.name
         } else if (req.body.password) {
-            index.password = req.body.password
+            user.password = req.body.password
         } else {
             res.json({
                 "message": "User not found"

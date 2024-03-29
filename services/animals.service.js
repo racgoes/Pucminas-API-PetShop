@@ -66,16 +66,17 @@ const animalsService = {
 
         const id = req.params.idAnimal;
 
-        const index = animals.findIndex(animal => animal.id == id);
+        const animal = animals.find(animal => animal.id == id);
+
 
         if (req.body.name) {
-            index.name = req.body.name
+            animal.name = req.body.name
         } else if (req.body.species) {
-            index.species = req.body.species
+            animal.species = req.body.species
         } else if (req.body.age) {
-            index.age = req.body.age
+            animal.age = req.body.age
         } else if (req.body.tutor) {
-            index.tutor = req.body.tutor
+            animal.tutor = req.body.tutor
         } else {
             res.json({
                 "message": "Animal not found"
@@ -87,7 +88,6 @@ const animalsService = {
     },
 
     deleteAnimal: async (req, res) => {
-
 
         const id = req.params.idAnimal;
 

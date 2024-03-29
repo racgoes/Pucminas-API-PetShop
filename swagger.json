@@ -48,7 +48,12 @@
           "200": {
             "description": "Recurso inserido com sucesso"
           }
-        }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
       }
     },
     "/animals": {
@@ -72,7 +77,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
       },
       "post": {
         "summary": "Cadastrar uma pessoa",
@@ -94,7 +104,12 @@
           "200": {
             "description": "Recurso inserido com sucesso"
           }
-        }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
       }
     },
     "/animals/{idAnimal}": {
@@ -126,6 +141,11 @@
             "schema": {
               "type": "integer"
             }
+          }
+        ],
+        "security": [
+          {
+            "BearerAuth": []
           }
         ]
       },
@@ -162,7 +182,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
       },
       "delete": {
         "summary": "Exemplo de operação do servidor",
@@ -186,6 +211,11 @@
             "schema": {
               "type": "integer"
             }
+          }
+        ],
+        "security": [
+          {
+            "BearerAuth": []
           }
         ]
       }
@@ -211,7 +241,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
       },
       "post": {
         "summary": "Cadastrar uma pessoa",
@@ -236,7 +271,12 @@
           "201": {
             "description": "Tutor criado"
           }
-        }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
       }
     },
     "/tutors/{idTutor}": {
@@ -268,6 +308,11 @@
             "schema": {
               "type": "integer"
             }
+          }
+        ],
+        "security": [
+          {
+            "BearerAuth": []
           }
         ]
       },
@@ -304,7 +349,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
       },
       "delete": {
         "summary": "Exemplo de operação do servidor",
@@ -329,6 +379,11 @@
               "type": "integer"
             }
           }
+        ],
+        "security": [
+          {
+            "BearerAuth": []
+          }
         ]
       }
     },
@@ -352,7 +407,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
       },
       "post": {
         "summary": "Cadastrar uma pessoa",
@@ -377,7 +437,12 @@
           "204": {
             "description": "Usuário não encontrado"
           }
-        }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
       }
     },
     "/users/{idUser}": {
@@ -409,6 +474,11 @@
             "schema": {
               "type": "integer"
             }
+          }
+        ],
+        "security": [
+          {
+            "BearerAuth": []
           }
         ]
       },
@@ -445,7 +515,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
       },
       "delete": {
         "summary": "Exemplo de operação do servidor",
@@ -469,6 +544,11 @@
             "schema": {
               "type": "integer"
             }
+          }
+        ],
+        "security": [
+          {
+            "BearerAuth": []
           }
         ]
       }
@@ -494,7 +574,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
       },
       "put": {
         "summary": "Exemplo de operação do servidor",
@@ -519,7 +604,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
       }
     }
   },

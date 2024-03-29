@@ -44,6 +44,7 @@ const controllers = {
         const data = await usersService.createUser(req, res);
         res.status(201);
     },
+    
     getOneUser: async (req, res) => {
 
         const data = await usersService.getOneUser(req, res);
@@ -55,7 +56,7 @@ const controllers = {
     },
 
     updateUser: async (req, res) => {
-        animalsService.updateUser(req, res)
+        usersService.updateUser(req, res)
     },
 
     deleteUser: async (req, res) => {
@@ -90,6 +91,8 @@ const controllers = {
     },
 
     updateAnimal: async (req, res) => {
+        console.log("updateAnimal")
+        console.log(req.body)
         animalsService.updateAnimal(req, res)
 
     },

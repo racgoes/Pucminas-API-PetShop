@@ -65,18 +65,17 @@ const tutorsService = {
         
         const id = req.params.idTutor;
 
-        const index = tutors.findIndex(tutor => tutor.id == id);
+        const tutor = tutors.findIndex(tutor => tutor.id == id);
 
-        const attributes = Object.keys(req.body);
 
         if (req.body.name) {
-            index.name = req.body.name
+            tutor.name = req.body.name
         } else if (req.body.species) {
-            index.species = req.body.species
+            tutor.species = req.body.species
         } else if (req.body.age) {
-            index.age = req.body.age
+            tutor.age = req.body.age
         } else if (req.body.tutor) {
-            index.tutor = req.body.tutor
+            tutor.tutor = req.body.tutor
         } else {
             res.json({
                 "message": "Tutor not found"
