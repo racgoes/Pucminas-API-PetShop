@@ -8,8 +8,8 @@
   ],
   "info": {
     "version": "1.0.0",
-    "title": "Sample Password Flow OAuth2 Project",
-    "description": "API for a Petshop. Entities Animal, Users, Tutors and Store."
+    "title": "Exemplo de projeto OAuth2 de fluxo de senha",
+    "description": "API para Petshop. Entidades Animal, Utilizadores, Tutores e Loja."
   },
   "paths": {
     "/": {
@@ -17,8 +17,8 @@
         "tags": [
           "Live Check"
         ],
-        "summary": "Server example operation",
-        "description": "Checks if server is online",
+        "summary": "Exemplo de operação do servidor",
+        "description": "Verifica se o servidor está online",
         "responses": {
           "200": {
             "description": "OK"
@@ -53,11 +53,11 @@
     },
     "/animals": {
       "get": {
-        "summary": "Server example operation",
+        "summary": "Exemplo de operação do servidor",
         "tags": [
           "Animais"
         ],
-        "description": "Checks if server is online",
+        "description": "Verifica se o servidor está online",
         "responses": {
           "200": {
             "description": "Operação bem sucedida",
@@ -99,11 +99,11 @@
     },
     "/animals/{idAnimal}": {
       "get": {
-        "summary": "Server example operation",
+        "summary": "Exemplo de operação do servidor",
         "tags": [
           "Animais"
         ],
-        "description": "Checks if server is online",
+        "description": "Verifica se o servidor está online",
         "responses": {
           "200": {
             "description": "Operação bem sucedida",
@@ -134,10 +134,13 @@
         "tags": [
           "Animais"
         ],
-        "description": "Checks if server is online",
+        "description": "Verifica se o servidor está online",
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "204": {
+            "description": "Não encontrado"
           }
         },
         "parameters": [
@@ -162,14 +165,17 @@
         }
       },
       "delete": {
-        "summary": "Server example operation",
+        "summary": "Exemplo de operação do servidor",
         "tags": [
           "Animais"
         ],
-        "description": "Checks if server is online",
+        "description": "Verifica se o servidor está online",
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "204": {
+            "description": "Animal não encontrado"
           }
         },
         "parameters": [
@@ -186,11 +192,11 @@
     },
     "/tutors": {
       "get": {
-        "summary": "Server example operation",
+        "summary": "Exemplo de operação do servidor",
         "tags": [
           "Tutores"
         ],
-        "description": "Checks if server is online",
+        "description": "Verifica se o servidor está online",
         "responses": {
           "200": {
             "description": "Operação bem sucedida",
@@ -226,17 +232,20 @@
         "responses": {
           "200": {
             "description": "Recurso inserido com sucesso"
+          },
+          "201": {
+            "description": "Tutor criado"
           }
         }
       }
     },
     "/tutors/{idTutor}": {
       "get": {
-        "summary": "Server example operation",
+        "summary": "Exemplo de operação do servidor",
         "tags": [
           "Tutores"
         ],
-        "description": "Checks if server is online",
+        "description": "Verifica se o servidor está online",
         "responses": {
           "200": {
             "description": "Operação bem sucedida",
@@ -263,14 +272,17 @@
         ]
       },
       "put": {
-        "summary": "Server example operation",
+        "summary": "Exemplo de operação do servidor",
         "tags": [
           "Tutores"
         ],
-        "description": "Checks if server is online",
+        "description": "Verifica se o servidor está online",
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "204": {
+            "description": "Tutor não encontrado"
           }
         },
         "parameters": [
@@ -295,14 +307,17 @@
         }
       },
       "delete": {
-        "summary": "Server example operation",
+        "summary": "Exemplo de operação do servidor",
         "tags": [
           "Tutores"
         ],
-        "description": "Checks if server is online",
+        "description": "Verifica se o servidor está online",
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "204": {
+            "description": "Tutor não encontrado"
           }
         },
         "parameters": [
@@ -319,11 +334,11 @@
     },
     "/users": {
       "get": {
-        "summary": "Server example operation",
+        "summary": "Exemplo de operação do servidor",
         "tags": [
           "Usuários"
         ],
-        "description": "Checks if server is online",
+        "description": "Verifica se o servidor está online",
         "responses": {
           "200": {
             "description": "Operação bem sucedida",
@@ -358,17 +373,20 @@
         "responses": {
           "200": {
             "description": "Operação bem sucedida"
+          },
+          "204": {
+            "description": "Usuário não encontrado"
           }
         }
       }
     },
     "/users/{idUser}": {
       "get": {
-        "summary": "Server example operation",
+        "summary": "Exemplo de operação do servidor",
         "tags": [
           "Usuários"
         ],
-        "description": "Checks if server is online",
+        "description": "Verifica se o servidor está online",
         "responses": {
           "200": {
             "description": "Operação bem sucedida",
@@ -395,14 +413,17 @@
         ]
       },
       "put": {
-        "summary": "Server example operation",
+        "summary": "Exemplo de operação do servidor",
         "tags": [
           "Usuários"
         ],
-        "description": "Checks if server is online",
+        "description": "Verifica se o servidor está online",
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "204": {
+            "description": "Usuário não encontrado"
           }
         },
         "parameters": [
@@ -427,14 +448,17 @@
         }
       },
       "delete": {
-        "summary": "Server example operation",
+        "summary": "Exemplo de operação do servidor",
         "tags": [
           "Usuários"
         ],
-        "description": "Checks if server is online",
+        "description": "Verifica se o servidor está online",
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "204": {
+            "description": "Usuário não encontrado"
           }
         },
         "parameters": [
@@ -451,11 +475,11 @@
     },
     "/store": {
       "get": {
-        "summary": "Server example operation",
+        "summary": "Exemplo de operação do servidor",
         "tags": [
           "Loja"
         ],
-        "description": "Checks if server is online",
+        "description": "Verifica se o servidor está online",
         "responses": {
           "200": {
             "description": "Operação bem sucedida",
@@ -473,14 +497,17 @@
         }
       },
       "put": {
-        "summary": "Server example operation",
+        "summary": "Exemplo de operação do servidor",
         "tags": [
           "Loja"
         ],
-        "description": "Checks if server is online",
+        "description": "Verifica se o servidor está online",
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "204": {
+            "description": "Atributo não encontrado"
           }
         },
         "requestBody": {

@@ -25,7 +25,7 @@ const usersService = {
             const usersArray = users.slice(start, limit);
             
             const usersArrayNoPass =  usersArray.map(({ id, name }) => ({ id, name }));
-            
+
             return {
                 "users": usersArrayNoPass,
                 "start": start,
@@ -38,10 +38,7 @@ const usersService = {
 
     getOneUser: async (req, res) => {
 
-        const {
-            query
-        } = req;
-        const id = query.id;
+        const id = req.params.userId;
 
         const user = users.filter(user => user.id == id);
         
@@ -51,7 +48,7 @@ const usersService = {
     getOneUserByUsername: async (name) => {
 
         const user = users.filter(user => user.name == name);
-        return user.map(({ id, name }) => ({ id, name }));
+        return user;
     },
 
     comparePasswords: async (password, dbPassword) => {
@@ -66,27 +63,20 @@ const usersService = {
 
     createUser: async (req, res) => {
 
-        const ids = users.map(user => {
-            return user.id;
-        });
+        let maxId = Math.max.apply(null, await Promise.all(users.map(async user => user.id)));
 
-        // const tutor = tutors.filter(tutor => tutor.name == req.body.name);
-
-        const maxId = Math.max(ids)
-
-        id = maxId + 1
+        let id = maxId + 1
 
         users.push({
-            "id": maxId,
+            "id": id,
             "name": req.body.name,
             "password": req.body.password
         })
     },
 
     updateUser: async (req, res) => {
-        const {
-            id
-        } = req.query;
+
+        const id = req.params.userId;
 
         const index = users.findIndex(user => user.id == id);
 
@@ -106,9 +96,8 @@ const usersService = {
     },
 
     deleteUser: async (req, res) => {
-        const {
-            id
-        } = req.query;
+
+        const id = req.params.userId;
 
         const index = users.findIndex(user => user.id == id);
 

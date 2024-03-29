@@ -36,10 +36,7 @@ const animalsService = {
 
     getOneAnimal: async (req, res) => {
 
-        const {
-            query
-        } = req;
-        const id = query.id;
+        const id = req.params.idAnimal;
 
         const animal = animals.filter(animal => animal.id == id);
 
@@ -48,29 +45,25 @@ const animalsService = {
 
     createAnimal: async (req, res) => {
 
-        const ids = animals.map(animal => {
-            return animal.id;
-        });
+        let maxId = Math.max.apply(null, await Promise.all(animals.map(async animal => animal.id)));
 
-        const tutor = tutors.filter(tutor => tutor.name == req.body.name);
-
-        const maxId = Math.max(ids)
-
-        id = maxId + 1
-
+        let id = maxId + 1
+        console.log(req.body)
+        console.log("maxId", maxId)
+        console.log("criando animal")
         animals.push({
-            "id": maxId,
-            "name": req.body.animal,
+            "id": id,
+            "name": req.body.name,
             "species": req.body.species,
             "age": req.body.age,
-            "tutor": tutor.id
+            "tutor": req.body.tutor
         })
+        return animals
     },
 
     updateAnimal: async (req, res) => {
-        const {
-            id
-        } = req.query;
+
+        const id = req.params.idAnimal;
 
         const index = animals.findIndex(animal => animal.id == id);
 
@@ -93,9 +86,8 @@ const animalsService = {
     },
 
     deleteAnimal: async (req, res) => {
-        const {
-            id
-        } = req.query;
+
+        const id = req.params.idAnimal;
 
         const index = animals.findIndex(animal => animal.id == id);
 

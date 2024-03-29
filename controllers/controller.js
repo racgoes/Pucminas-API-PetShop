@@ -3,7 +3,6 @@ const tutorsService = require('../services/tutors.service');
 const usersService = require('../services/users.service');
 const storeService = require('../services/store.service');
 
-const animalModel = require('../models/animal.model')
 const jwt = require('jsonwebtoken');
 
 const generateBearerToken = async (req, res) => {
@@ -14,7 +13,7 @@ const generateBearerToken = async (req, res) => {
     };
 
     try {
-        const token = jwt.sign(payload, secretKey, options);
+        const token = await jwt.sign(payload, secretKey, options);
         console.log('Bearer token generated:', token);
         return token;
     } catch (error) {
@@ -42,7 +41,7 @@ const controllers = {
 
     createUser: async (req, res) => {
         const data = await usersService.createUser(req, res);
-        res.json(data).status(201);
+        res.status(201);
     },
     getOneUser: async (req, res) => {
 
@@ -71,7 +70,6 @@ const controllers = {
     },
 
     getOneAnimal: async (req, res) => {
-
         const data = await animalsService.getOneAnimal(req, res);
         if (Object.keys(data).length === 0) {
             res.status(404)
@@ -81,23 +79,16 @@ const controllers = {
     },
 
     createAnimal: async (req, res) => {
-        if (animalModel.validateAnimalInput(req.body)) {
-            animalsService.createAnimal(req, res)
-        } else {
-            res.json({
-                "message": "Bad inputs"
-            }).send(400)
+        
+        try{
+            animalsService.createAnimal(req, res).then(res.status(201));
+        }catch{
+            res.status(400).send("Bad inputs")
         }
     },
 
     updateAnimal: async (req, res) => {
-        if (animalModel.validateAnimalUpdate(req.body)) {
-            animalsService.updateAnimal(req, res)
-        } else {
-            res.json({
-                "message": "Bad inputs"
-            }).send(400)
-        }
+        animalsService.updateAnimal(req, res)
 
     },
 

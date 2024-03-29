@@ -8,8 +8,8 @@ const tutorsService = {
         const {
             query
         } = req;
-        const limit = query.limit;
-        const start = query.start;
+        let limit = query.limit;
+        let start = query.start;
 
 
         if (start == null) {
@@ -36,10 +36,7 @@ const tutorsService = {
 
     getOneTutor: async (req, res) => {
 
-        const {
-            query
-        } = req;
-        const id = query.id;
+        const id = req.params.idTutor;
 
         const tutor = tutors.filter(tutor => tutor.id == id);
 
@@ -48,16 +45,12 @@ const tutorsService = {
 
     createTutor: async (req, res) => {
 
-        const ids = tutors.map(tutor => {
-            return tutor.id;
-        });
+        let maxId = Math.max.apply(null, await Promise.all(tutors.map(async tutor => tutor.id)));
 
-        const maxId = Math.max(ids)
-
-        id = maxId + 1
+        let id = maxId + 1
 
         tutors.push({
-            "id": maxId,
+            "id": id,
             "name": req.body.name,
             "email": req.body.email,
             "phone": req.body.phone
@@ -69,9 +62,8 @@ const tutorsService = {
     },
 
     updateTutor: async (req, res) => {
-        const {
-            id
-        } = req.query;
+        
+        const id = req.params.idTutor;
 
         const index = tutors.findIndex(tutor => tutor.id == id);
 
@@ -96,9 +88,8 @@ const tutorsService = {
     },
 
     deleteTutor: async (req, res) => {
-        const {
-            id
-        } = req.query;
+
+        const id = req.params.idTutor;
 
         const index = tutors.findIndex(tutor => tutor.id == id);
 
