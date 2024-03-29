@@ -58,7 +58,8 @@ const animalsService = {
             "age": req.body.age,
             "tutor": req.body.tutor
         })
-        return animals
+        return animals;
+        
     },
 
     updateAnimal: async (req, res) => {
@@ -87,10 +88,11 @@ const animalsService = {
 
     deleteAnimal: async (req, res) => {
 
+
         const id = req.params.idAnimal;
 
         const index = animals.findIndex(animal => animal.id == id);
-
+      
         if (index !== -1) {
             animals.splice(index, 1);
             res.json({

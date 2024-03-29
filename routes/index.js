@@ -15,19 +15,19 @@ router.get('/v1/animals', verifyToken, controller.getAllAnimals)
 router.get('/v1/animals/:idAnimal', verifyToken, controller.getOneAnimal)
 router.post('/v1/animals', verifyToken, controller.createAnimal);
 router.put('/v1/animals', verifyToken, controller.updateAnimal);
-router.delete('/v1/animals', verifyToken, controller.deleteAnimal);
+router.delete('/v1/animals/:idAnimal', verifyToken, controller.deleteAnimal);
 
 router.get('/v1/tutors', verifyToken, controller.getAllTutors)
 router.get('/v1/tutors/:idTutor', verifyToken, controller.getOneTutor)
 router.post('/v1/tutors', verifyToken, controller.createTutor);
 router.put('/v1/tutors', verifyToken, controller.updateTutor);
-router.delete('/v1/tutors', verifyToken, controller.deleteTutor);
+router.delete('/v1/tutors/:idTutor', verifyToken, controller.deleteTutor);
 
 router.get('/v1/users', verifyToken, controller.getAllUsers);
 router.get('/v1/users/:userId', verifyToken, controller.getOneUser);
 router.post('/v1/users', verifyToken, controller.createUser);
 router.put('/v1/users', verifyToken, controller.updateUser);
-router.delete('/v1/users', verifyToken, controller.deleteUser);
+router.delete('/v1/users/:userId', verifyToken, controller.deleteUser);
 
 router.get('/v1/store', verifyToken, controller.getStoreInfo);
 router.put('/v1/store', verifyToken, controller.updateStore);

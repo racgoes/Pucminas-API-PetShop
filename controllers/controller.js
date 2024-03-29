@@ -37,6 +37,7 @@ const controllers = {
 
     getAllUsers: async (req, res) => {
         const data = await usersService.getAllUsers(req, res);
+        res.json(data).status(200);
     },
 
     createUser: async (req, res) => {
@@ -58,7 +59,7 @@ const controllers = {
     },
 
     deleteUser: async (req, res) => {
-        animalsService.deleteUser(req, res)
+        usersService.deleteUser(req, res)
     },
 
     // Animals
@@ -79,11 +80,12 @@ const controllers = {
     },
 
     createAnimal: async (req, res) => {
-        
         try{
-            animalsService.createAnimal(req, res).then(res.status(201));
-        }catch{
-            res.status(400).send("Bad inputs")
+        animalsService.createAnimal(req, res).then(res.status(201).send("Created"));
+        
+        res.send({"Message":"Created"}).status(201);
+        }catch(e){
+            res.send({"Message":"Error"}).status(500);
         }
     },
 
@@ -111,23 +113,13 @@ const controllers = {
     },
 
     createTutor: async (req, res) => {
-        if (animalModel.validateTutorInput(req.body)) {
-            tutorsService.createTutor(req, res)
-        } else {
-            res.json({
-                "message": "Bad inputs"
-            }).send(400)
-        }
+        tutorsService.createTutor(req, res)
+        
     },
 
     updateTutor: async (req, res) => {
-        if (animalModel.validateTutorUpdate(req.body)) {
-            tutorsService.updateTutor(req, res)
-        } else {
-            res.json({
-                "message": "Bad inputs"
-            }).send(400)
-        }
+        tutorsService.updateTutor(req, res)
+        
     },
 
     deleteTutor: async (req, res) => {
