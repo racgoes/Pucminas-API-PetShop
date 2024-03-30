@@ -1,4 +1,4 @@
-const users = require('../DB/users');
+const DBusers = require('../DB/DB');
 
 const usersService = {
 
@@ -16,13 +16,13 @@ const usersService = {
         }
 
         if (limit == null) {
-            const usersArray = users.slice(start);
+            const usersArray = DBusers.users.slice(start);
             return {
                 "users": usersArray,
                 "start": start
             }
         } else {
-            const usersArray = users.slice(start, limit);
+            const usersArray = DBusers.users.slice(start, limit);
             
             const usersArrayNoPass =  usersArray.map(({ id, name }) => ({ id, name }));
 
@@ -40,14 +40,14 @@ const usersService = {
 
         const id = req.params.userId;
 
-        const user = users.filter(user => user.id == id);
+        const user = DBusers.users.filter(user => user.id == id);
         
         return user.map(({ id, name }) => ({ id, name }));
     },
 
     getOneUserByUsername: async (name) => {
 
-        const user = users.filter(user => user.name == name);
+        const user = DBusers.users.filter(user => user.name == name);
         return user;
     },
 
@@ -63,7 +63,7 @@ const usersService = {
 
     createUser: async (req, res) => {
 
-        let maxId = Math.max.apply(null, await Promise.all(users.map(async user => user.id)));
+        let maxId = Math.max.apply(null, await Promise.all(DBusers.users.map(async user => user.id)));
 
         let id = maxId + 1
 
@@ -79,7 +79,7 @@ const usersService = {
 
         const id = req.params.userId;
 
-        const user = users.find(user => user.id == id);
+        const user = DBusers.users.find(user => user.id == id);
 
 
         if (req.body.name) {
@@ -100,10 +100,10 @@ const usersService = {
 
         const id = req.params.userId;
 
-        const index = users.findIndex(user => user.id == id);
+        const index = DBusers.users.findIndex(user => user.id == id);
 
         if (index !== -1) {
-            users.splice(index, 1);
+            DBusers.users.splice(index, 1);
             res.json({
                 "message": "Deleted"
             }).status(200)

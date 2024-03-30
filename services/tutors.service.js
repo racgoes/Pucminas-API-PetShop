@@ -1,5 +1,4 @@
-const animals = require('../DB/animals');
-const tutors = require('../DB/tutors');
+const DB = require('../DB/DB');
 
 const tutorsService = {
 
@@ -17,13 +16,13 @@ const tutorsService = {
         }
 
         if (limit == null) {
-            const tutorsArray = tutors.slice(start);
+            const tutorsArray = DB.tutors.slice(start);
             return {
                 "tutors": tutorsArray,
                 "start": start
             }
         } else {
-            const tutorsArray = tutors.slice(start, limit);
+            const tutorsArray = DB.tutors.slice(start, limit);
             return {
                 "tutors": tutorsArray,
                 "start": start,
@@ -38,14 +37,14 @@ const tutorsService = {
 
         const id = req.params.idTutor;
 
-        const tutor = tutors.filter(tutor => tutor.id == id);
+        const tutor = DB.tutors.filter(tutor => tutor.id == id);
 
         return tutor;
     },
 
     createTutor: async (req, res) => {
 
-        let maxId = Math.max.apply(null, await Promise.all(tutors.map(async tutor => tutor.id)));
+        let maxId = Math.max.apply(null, await Promise.all(DB.tutors.map(async tutor => tutor.id)));
 
         let id = maxId + 1
 
@@ -61,7 +60,7 @@ const tutorsService = {
         
         const id = req.params.idTutor;
 
-        const tutor = tutors.findIndex(tutor => tutor.id == id);
+        const tutor = DB.tutors.findIndex(tutor => tutor.id == id);
 
 
         if (req.body.name) {
@@ -86,10 +85,10 @@ const tutorsService = {
 
         const id = req.params.idTutor;
 
-        const index = tutors.findIndex(tutor => tutor.id == id);
+        const index = DB.tutors.findIndex(tutor => tutor.id == id);
 
         if (index !== -1) {
-            animals.splice(index, 1);
+            DB.animals.splice(index, 1);
             res.json({
                 "message": "Deleted"
             }).status(200)

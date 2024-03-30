@@ -7,7 +7,9 @@ const controller = require('../controllers/controller');
 const verifyToken = require('../middlewares/verifyToken');
 const verifyPassword = require('../middlewares/verifyPassword');
 
-router.get('/v1', async (req, res) => {res.send('Server is UP').status(200);});
+router.get('/v1', async (req, res) => {
+    console.log("API is UP");
+    res.send('Server is UP').status(200);});
 
 router.post('/v1/login', verifyPassword, controller.createBearerToken);
 

@@ -1,0 +1,121 @@
+{
+    "animals": [{
+            "id": 0,
+            "name": "Max",
+            "species": "Dog",
+            "age": 5,
+            "tutor": 1
+        },
+        {
+            "id": 1,
+            "name": "Whiskers",
+            "species": "Cat",
+            "age": 3,
+            "tutor": 1
+        },
+        {
+            "id": 2,
+            "name": "Buddy",
+            "species": "Dog",
+            "age": 7,
+            "tutor": 0
+        },
+        {
+            "id": 3,
+            "name": "Fishy",
+            "species": "Fish",
+            "age": 1,
+            "tutor": 2
+        },
+        {
+            "id": 4,
+            "name": "Fluffy",
+            "species": "Cat",
+            "age": 2,
+            "tutor": 2
+        },
+        {
+            "id": 5,
+            "name": "Rocky",
+            "species": "Dog",
+            "age": 4,
+            "tutor": 0
+        },
+        {
+            "id": 6,
+            "name": "Spike",
+            "species": "Dog",
+            "age": 6,
+            "tutor": 1
+        },
+        {
+            "id": 7,
+            "name": "Polly",
+            "species": "Bird",
+            "age": 2,
+            "tutor": 2
+        },
+        {
+            "id": 8,
+            "name": "Mittens",
+            "species": "Cat",
+            "age": 1,
+            "tutor": 0
+        },
+        {
+            "id": 9,
+            "name": "Goldie",
+            "species": "Fish",
+            "age": 3,
+            "tutor": 4
+        }
+    ],
+    "tutors": [{
+            "id": 0,
+            "name": "John Doe",
+            "email": "johndoe@example.com",
+            "phone": "1234567890"
+        },
+        {
+            "id": 1,
+            "name": "Jane Smith",
+            "email": "janesmith@example.com",
+            "phone": "9876543210"
+        },
+        {
+            "id": 2,
+            "name": "Ederson Manuel",
+            "email": "janesmith@example.com",
+            "phone": "98765432"
+        },
+        {
+            "id": 3,
+            "name": "Alice Johnson",
+            "email": "alicejohnson@example.com",
+            "phone": "5555555555"
+        },
+        {
+            "id": 4,
+            "name": "Bob Smith",
+            "email": "bobsmith@example.com",
+            "phone": "9999999999"
+        }
+    ],
+    "users": [{
+            "id": 0,
+            "name": "admin",
+            "password": "password"
+        },
+        {
+            "id": 1,
+            "name": "Guilherme",
+            "password": "password"
+        }
+    ],
+    "store": {
+        "name": "Aurora's Petstore Inc",
+        "url": "http://petstore.swagger.io",
+        "description": "Petstore da Aurora",
+        "documentNumber": "1234567890"
+    }
+}
