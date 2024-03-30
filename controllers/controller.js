@@ -25,7 +25,7 @@ const generateBearerToken = async (req, res) => {
 
 
 const controllers = {
-
+    // Login
     createBearerToken: async (req, res) => {
 
         const token = await generateBearerToken();
@@ -35,16 +35,22 @@ const controllers = {
 
     },
 
+    // Users
     getAllUsers: async (req, res) => {
         const data = await usersService.getAllUsers(req, res);
         res.json(data).status(200);
     },
 
     createUser: async (req, res) => {
-        const data = await usersService.createUser(req, res);
-        res.status(201);
+        try{
+            await usersService.createUser(req, res).then(res.status(201).send({"message":"Created"}));
+            console.log("Created")
+            
+        }catch(e){
+            res.send({"Message":"Error"}).status(400);
+        }
     },
-    
+
     getOneUser: async (req, res) => {
 
         const data = await usersService.getOneUser(req, res);
@@ -82,11 +88,11 @@ const controllers = {
 
     createAnimal: async (req, res) => {
         try{
-        animalsService.createAnimal(req, res).then(res.status(201).send("Created"));
-        
-        res.send({"Message":"Created"}).status(201);
+            await animalsService.createAnimal(req, res).then(res.status(201).send({"message":"Created"}));
+            console.log("Created")
+            
         }catch(e){
-            res.send({"Message":"Error"}).status(500);
+            res.send({"Message":"Error"}).status(400);
         }
     },
 
@@ -94,13 +100,13 @@ const controllers = {
         console.log("updateAnimal")
         console.log(req.body)
         animalsService.updateAnimal(req, res)
-
     },
 
     deleteAnimal: async (req, res) => {
-        animalsService.deleteAnimal(req, res)
+        await animalsService.deleteAnimal(req, res)
     },
 
+    // Tutors
     getAllTutors: async (req, res) => {
         const data = await tutorsService.getAllTutors(req, res);
         res.json(data).status(200);
@@ -116,26 +122,31 @@ const controllers = {
     },
 
     createTutor: async (req, res) => {
-        tutorsService.createTutor(req, res)
-        
+        try{
+            await tutorsService.createTutor(req, res).then(res.status(201).send({"message":"Created"}));
+            console.log("Created")
+            
+        }catch(e){
+            res.send({"Message":"Error"}).status(400);
+        }
     },
 
     updateTutor: async (req, res) => {
-        tutorsService.updateTutor(req, res)
-        
+        await tutorsService.updateTutor(req, res)
     },
 
     deleteTutor: async (req, res) => {
-        tutorsService.deleteTutor(req, res)
+        await tutorsService.deleteTutor(req, res)
     },
 
+    // Store
     getStoreInfo: async (req, res) => {
         const data = await storeService.getStoreInfo(req, res);
         res.json(data).status(200);
     },
 
     updateStore: async (req, res) => {
-        storeService.updateStore(req, res)
+        await storeService.updateStore(req, res)
     }
 };
 

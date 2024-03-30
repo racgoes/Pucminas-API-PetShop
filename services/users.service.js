@@ -72,6 +72,7 @@ const usersService = {
             "name": req.body.name,
             "password": req.body.password
         })
+
     },
 
     updateUser: async (req, res) => {

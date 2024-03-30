@@ -51,6 +51,7 @@ const animalsService = {
         console.log(req.body)
         console.log("maxId", maxId)
         console.log("criando animal")
+        
         animals.push({
             "id": id,
             "name": req.body.name,
@@ -58,8 +59,6 @@ const animalsService = {
             "age": req.body.age,
             "tutor": req.body.tutor
         })
-        return animals;
-        
     },
 
     updateAnimal: async (req, res) => {

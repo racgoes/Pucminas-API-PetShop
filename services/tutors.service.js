@@ -55,10 +55,6 @@ const tutorsService = {
             "email": req.body.email,
             "phone": req.body.phone
         })
-
-        res.json({
-            "message": "Tutor created"
-        }).status(201)
     },
 
     updateTutor: async (req, res) => {
