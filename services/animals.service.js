@@ -1,5 +1,4 @@
-const animals = require('../DB/animals');
-const tutors = require('../DB/tutors');
+const DB = require('../DB/DB');
 
 const animalsService = {
 
@@ -17,13 +16,13 @@ const animalsService = {
         }
 
         if (limit == null) {
-            const animalsArray = animals.slice(start);
+            const animalsArray = DB.animals.slice(start);
             return {
                 "animals": animalsArray,
                 "start": start
             }
         } else {
-            const animalsArray = animals.slice(start, limit);
+            const animalsArray = DB.animals.slice(start, limit);
             return {
                 "animals": animalsArray,
                 "start": start,
@@ -38,14 +37,14 @@ const animalsService = {
 
         const id = req.params.idAnimal;
 
-        const animal = animals.filter(animal => animal.id == id);
+        const animal = DB.animals.filter(animal => animal.id == id);
 
         return animal;
     },
 
     createAnimal: async (req, res) => {
 
-        let maxId = Math.max.apply(null, await Promise.all(animals.map(async animal => animal.id)));
+        let maxId = Math.max.apply(null, await Promise.all(DB.animals.map(async animal => animal.id)));
 
         let id = maxId + 1
         console.log(req.body)
@@ -65,7 +64,7 @@ const animalsService = {
 
         const id = req.params.idAnimal;
 
-        const animal = animals.find(animal => animal.id == id);
+        const animal = DB.animals.find(animal => animal.id == id);
 
 
         if (req.body.name) {
@@ -90,10 +89,10 @@ const animalsService = {
 
         const id = req.params.idAnimal;
 
-        const index = animals.findIndex(animal => animal.id == id);
+        const index = DB.animals.findIndex(animal => animal.id == id);
       
         if (index !== -1) {
-            animals.splice(index, 1);
+            DB.animals.splice(index, 1);
             res.json({
                 "message": "Deleted"
             }).status(200)
