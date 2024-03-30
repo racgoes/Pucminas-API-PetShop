@@ -1,0 +1,14 @@
+{
+  "openapi" : "3.0.0",
+  "info" : {
+    "title" : "PUCMINAS-API-PETSHOP",
+    "description" : "PUCMINAS-API-PETSHOP",
+    "version" : "2.0.0"
+  },
+  "servers" : [ {
+    "url" : "https://virtserver.swaggerhub.com/1504646_1/PUCMINAS-API-PETSHOP/2.0.0",
+    "description" : "SwaggerHub API Auto Mocking"
+  } ],
+  "paths" : { },
+  "components" : { }
+}
